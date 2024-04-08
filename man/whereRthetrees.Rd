@@ -4,7 +4,7 @@
 \alias{whereRthetrees}
 \title{A function to find the closest public nature area around you}
 \usage{
-whereRthetrees(x, y, buffer)
+whereRthetrees(x, y, buffer, colorblind)
 }
 \arguments{
 \item{x}{A x coordinate as decimal degree.}
@@ -13,8 +13,11 @@ whereRthetrees(x, y, buffer)
 
 \item{buffer}{The buffer radius around the position [m]. If too big,
 an error will occur because this package is using the demo-server of osrm
-which restricts the query size to 10000. Therfore, a buffer of 200-300m is
+which restricts the query size to 10000. Therefore, a buffer of 200-300m is
 often sufficient.}
+
+\item{colorblind}{1 or 0. If 1, a colorblind-friendly version of the
+plot will be shown.}
 }
 \value{
 A map of the nature areas around the given position, with a

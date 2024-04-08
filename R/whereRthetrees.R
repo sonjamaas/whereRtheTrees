@@ -10,7 +10,7 @@
 #'     an error will occur because this package is using the demo-server of osrm
 #'     which restricts the query size to 10000. Therefore, a buffer of 200-300m is
 #'     often sufficient.
-#' @param colorblind TRUE/FALSE. If true, a colorblind-friendly version of the
+#' @param colorblind 1 or 0. If 1, a colorblind-friendly version of the
 #'    plot will be shown.
 #'
 #' @returns A map of the nature areas around the given position, with a
@@ -53,7 +53,7 @@ whereRthetrees <- function(x,y,buffer, colorblind){                             
   route <- osrmRoute(pov,closestNature, overview = "simplified")                # calculate the shortest route
 
   # plot the osm data
-  if(colorblind = TRUE){
+  if(colorblind == 1){
     plotFinal <- finalPlot2(streets, river, forest,                                # get the final plot
                            specialForest, wood, singleTree,
                            treeLine, grassland,
