@@ -8,8 +8,10 @@
 #' @param y A y coordinate as decimal degree.
 #' @param buffer The buffer radius around the position [m]. If too big,
 #'     an error will occur because this package is using the demo-server of osrm
-#'     which restricts the query size to 10000. Therfore, a buffer of 200-300m is
+#'     which restricts the query size to 10000. Therefore, a buffer of 200-300m is
 #'     often sufficient.
+#' @param colorblind TRUE/FALSE. If true, a colorblind-friendly version of the
+#'    plot will be shown.
 #'
 #' @returns A map of the nature areas around the given position, with a
 #'     route pointing to the closest one.
@@ -17,7 +19,7 @@
 #' @examples
 #' whereRtheTrees(8.671087, 52.113866, 300)
 #' @export
-whereRthetrees <- function(x,y,buffer){                                         # whereRtheTrees function uses the x and y coordinates as well as the buffer area
+whereRthetrees <- function(x,y,buffer, colorblind){                                         # whereRtheTrees function uses the x and y coordinates as well as the buffer area
 
   # get spatial variables
   aoi <- spatialExtent(x,y,buffer)                                              # get the aoi
@@ -51,11 +53,19 @@ whereRthetrees <- function(x,y,buffer){                                         
   route <- osrmRoute(pov,closestNature, overview = "simplified")                # calculate the shortest route
 
   # plot the osm data
-  plotFinal <- finalPlot(streets, river, forest,                                # get the final plot
-                         specialForest, wood, singleTree,
-                         treeLine, grassland,
-                         meadow, park, garden,
-                         natureReserve, pov, xlim, ylim,closestNature, route)
+  if(colorblind = TRUE){
+    plotFinal <- finalPlot2(streets, river, forest,                                # get the final plot
+                           specialForest, wood, singleTree,
+                           treeLine, grassland,
+                           meadow, park, garden,
+                           natureReserve, pov, xlim, ylim,closestNature, route)
+  } else {
+    plotFinal <- finalPlot(streets, river, forest,                                # get the final plot
+                           specialForest, wood, singleTree,
+                           treeLine, grassland,
+                           meadow, park, garden,
+                           natureReserve, pov, xlim, ylim,closestNature, route)
+  }
 
   return(plotFinal)                                                             # function returns the final plot
 }

@@ -40,7 +40,7 @@ findNature <- function(streets, river, forest, specialForest, wood, singleTree, 
     distForest <- osrmTable(pov,forest$osm_points,                              # use osrmTable function to get distance matrix (distances from pov to the osm points)
                             measure = c('distance'),                            # distance as measurement for the closest point, but duration is also possible
                             osrm.profile = "car")                               # the osrm demo server that I am using is only supporting the "car" profile for routing,
-    # even tho the table function is usable with all profiles...
+                                                                                # even tho the table function is usable with all profiles...
     # get closest forest point
     distForestsorted <- as.list(                                                # make a list that contains the distances of the distance matrix sorted ascending
       distForest$distances[,order(distForest$distances[1,])])

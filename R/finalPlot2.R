@@ -1,4 +1,4 @@
-#' A function to plot the choosen OSM features
+#' A function to plot the choosen OSM features in a colourblind-friendly way
 #'
 #' @param streets A simple feature collection of OSM-features.
 #' @param river A simple feature collection of OSM-features.
@@ -28,7 +28,7 @@
 #'           meadow, park, garden,
 #'           natureReserve, pov, xlim, ylim, closestNature, route)
 #' @keywords internal
-finalPlot <- function(streets, river, forest,                                   # finalPlot becomes a function using all the osm objects and the spatial variables
+finalPlot2 <- function(streets, river, forest,                                   # finalPlot becomes a function using all the osm objects and the spatial variables
                       specialForest, wood, singleTree,
                       treeLine, grassland,
                       meadow, park, garden,
@@ -51,7 +51,7 @@ finalPlot <- function(streets, river, forest,                                   
 
   if(!is_empty(forest$osm_polygons)){
     plot <- plot+geom_sf_pattern(data = forest$osm_polygons,
-                         aes(fill="Forest")
+                                 aes(fill="Forest")
     )
   }
 
@@ -137,21 +137,21 @@ finalPlot <- function(streets, river, forest,                                   
           panel.background = element_rect(fill= "ivory"),                       # changing background and grid colour
           panel.grid.major = element_line(color = "ivory2"),
           plot.tag = element_text(size = 8, face = "italic", hjust = 0))+
-    scale_fill_manual(values=c("Forest" = "darkolivegreen",                     # manually setting the legend for polygon objects
-                               "Special Forest" = "darkolivegreen4",
-                               "Wood" = "darkolivegreen3",
-                               "Grassland" = "green",
-                               "Meadow" = "green2",
-                               "Park" = "green3",
-                               "Garden" = "darkseagreen3",
-                               "Nature Reserve" = "green4"),
+    scale_fill_manual(values=c("Forest" = "#117733",                     # manually setting the legend for polygon objects
+                               "Special Forest" = "#999933",
+                               "Wood" = "#44AA99",
+                               "Grassland" = "#DDCC77",
+                               "Meadow" = "#661100",
+                               "Park" = "#CC6677",
+                               "Garden" = "#AA4499",
+                               "Nature Reserve" = "#888888"),
                       guide = guide_legend(title = NULL, order =2))+            # removing legend title and setting its position as second
-    scale_color_manual(values = c("Streets" = "snow4",                          # manually setting the legend for the line and point objects
-                                  "River" = "deepskyblue3",
-                                  "Single Tree" = "springgreen3",
-                                  "Tree Line" = "springgreen3",
-                                  "You are here" = "red",
-                                  "Closest Nature" = "orange",
+    scale_color_manual(values = c("Streets" = "black",                          # manually setting the legend for the line and point objects
+                                  "River" = "#88CCEE",
+                                  "Single Tree" = "#882255",
+                                  "Tree Line" = "#332288",
+                                  "You are here" = "#6699CC",
+                                  "Closest Nature" = "white",
                                   "Route" = "yellow"),
                        guide = guide_legend(title = "Legend", order = 1),       # setting the legend title and its position as first
                        breaks = c("You are here","Closest Nature","Route",      # reordering legend items
