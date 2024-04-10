@@ -17,7 +17,7 @@
 #'     route pointing to the closest one.
 #'
 #' @examples
-#' whereRtheTrees(8.671087, 52.113866, 300, 1)
+#' whereRtheTrees(8.671087, 52.113866, 200, 1)
 #' @export
 whereRthetrees <- function(x,y,buffer, colorblind){                                         # whereRtheTrees function uses the x and y coordinates as well as the buffer area
 
