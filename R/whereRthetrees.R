@@ -51,10 +51,22 @@ whereRthetrees <- function(x,y,buffer, colorblind){                             
 
   # calculate shortest route to nature point
   if (length(st_is_empty(closestNature))==0){
-    stop("There is no public nature in the given area, sorry! Try a bigger area.")
+    stop("There is no public nature in the given area, sorry! Try a bigger area.",
+         r"{
+
+          /\_/\    Hrmpf.
+         ( o.o )  /
+          > ^ <
+         /     \
+         }")
   } else {
     # calculate the shortest route
     route <- osrmRoute(pov,closestNature, overview = "simplified")
+
+    print("          /\\_/\\    Nature nearby!")
+    print("         (  ♥.♥  )  /              ")
+    print("          >  ˇ  <                  ")
+    print("         / \\  / \\                ")
   }
 
   # plot the osm data
