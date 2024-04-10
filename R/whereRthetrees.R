@@ -17,7 +17,7 @@
 #'     route pointing to the closest one.
 #'
 #' @examples
-#' whereRtheTrees(8.671087, 52.113866, 200, 1)
+#' whereRthetrees(8.671087, 52.113866, 200, 1)
 #' @export
 whereRthetrees <- function(x,y,buffer, colorblind){                                         # whereRtheTrees function uses the x and y coordinates as well as the buffer area
 
@@ -50,7 +50,12 @@ whereRthetrees <- function(x,y,buffer, colorblind){                             
                               garden, natureReserve, pov)
 
   # calculate shortest route to nature point
-  route <- osrmRoute(pov,closestNature, overview = "simplified")                # calculate the shortest route
+  if (length(st_is_empty(closestNature))==0){
+    stop("There is no public nature in the given area, sorry! Try a bigger area.")
+  } else {
+    # calculate the shortest route
+    route <- osrmRoute(pov,closestNature, overview = "simplified")
+  }
 
   # plot the osm data
   if(colorblind == 1){
