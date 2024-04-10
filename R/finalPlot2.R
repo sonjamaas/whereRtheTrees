@@ -50,7 +50,7 @@ finalPlot2 <- function(streets, river, forest,                                  
   }
 
   if(!is_empty(forest$osm_polygons)){
-    plot <- plot+geom_sf_pattern(data = forest$osm_polygons,
+    plot <- plot+geom_sf(data = forest$osm_polygons,
                                  aes(fill="Forest")
     )
   }
@@ -146,12 +146,12 @@ finalPlot2 <- function(streets, river, forest,                                  
                                "Garden" = "#AA4499",
                                "Nature Reserve" = "#888888"),
                       guide = guide_legend(title = NULL, order =2))+            # removing legend title and setting its position as second
-    scale_color_manual(values = c("Streets" = "black",                          # manually setting the legend for the line and point objects
+    scale_color_manual(values = c("Streets" = "grey",                          # manually setting the legend for the line and point objects
                                   "River" = "#88CCEE",
                                   "Single Tree" = "#882255",
                                   "Tree Line" = "#332288",
                                   "You are here" = "#6699CC",
-                                  "Closest Nature" = "white",
+                                  "Closest Nature" = "pink",
                                   "Route" = "yellow"),
                        guide = guide_legend(title = "Legend", order = 1),       # setting the legend title and its position as first
                        breaks = c("You are here","Closest Nature","Route",      # reordering legend items

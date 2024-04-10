@@ -50,7 +50,7 @@ finalPlot <- function(streets, river, forest,                                   
   }
 
   if(!is_empty(forest$osm_polygons)){
-    plot <- plot+geom_sf_pattern(data = forest$osm_polygons,
+    plot <- plot+geom_sf(data = forest$osm_polygons,
                          aes(fill="Forest")
     )
   }

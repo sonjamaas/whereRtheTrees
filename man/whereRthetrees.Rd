@@ -29,5 +29,5 @@ It can be calming, relaxing and grounding. It can make one happy and more level-
 So take a break, look for the closest public nature spot and go hug a tree!
 }
 \examples{
-whereRtheTrees(8.671087, 52.113866, 300)
+whereRtheTrees(8.671087, 52.113866, 300, 1)
 }
