@@ -1,5 +1,7 @@
 # whereRthetrees
 
+<img src="https://img.shields.io/badge/Intro_to_programming-Final_Project-green"/> <img src="https://img.shields.io/badge/Made_with-%E2%99%A5_%26_R-pink"/> <img src="https://img.shields.io/badge/Status-Done_and_dusted-%23C2E4EE"/> <img src="https://img.shields.io/badge/This_is_about-%F0%9F%8C%B3-%23F5EEDA"/>
+
 Being outside in nature is proven to be good for body and mind. It can be calming, relaxing and grounding. It can make one happy and more level-headed. So take a break, look for the closest public nature spot and go for a walk!
 
 ## Installation
