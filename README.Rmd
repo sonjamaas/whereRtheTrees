@@ -37,7 +37,7 @@ This is a basic example which shows you how to use this package:
 
 ```{r example}
 library(whereRthetrees)
-whereRthetrees(8.671087, 52.113866, 200)
+whereRthetrees(8.671087, 52.113866, 200, 0)
 ```
 
 Take a break from work and go hug a tree!
